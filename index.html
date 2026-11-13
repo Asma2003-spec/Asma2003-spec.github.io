@@ -127,6 +127,8 @@ section > h2 { font-size: clamp(2.1rem, 4.5vw, 2.9rem); line-height: 1.05; }
 .card .kind i { width: 9px; height: 9px; border-radius: 50%; background: var(--c); }
 .card h3 { font-size: 1.18rem; }
 .card p { color: var(--muted); font-size: .95rem; line-height: 1.5; }
+.d-link { display: inline-block; margin-top: 16px; color: var(--accent); font-weight: 600; text-decoration: none; }
+.d-link:hover { text-decoration: underline; }
 .card .more { margin-top: auto; color: var(--accent); font-size: .88rem; font-weight: 600; padding-top: 6px; }
 .grid:not(.filtered) .wide { grid-column: span 2; }
 @media (max-width: 880px) {
@@ -296,6 +298,7 @@ footer h2 { font-size: clamp(2.1rem, 4.5vw, 2.9rem); line-height: 1.05; }
     <p id="d-intro"></p>
     <ul id="d-list"></ul>
     <div class="chips" id="d-skills"></div>
+    <a id="d-link" class="d-link" target="_blank" rel="noopener" hidden>Voir le code sur GitHub ↗</a>
   </div>
 </dialog>
 
@@ -308,9 +311,14 @@ footer h2 { font-size: clamp(2.1rem, 4.5vw, 2.9rem); line-height: 1.05; }
     mobile: { name: 'Mobile', color: '#58b39b' },
     process: { name: 'Processus', color: '#e9a15f' },
     algo: { name: 'Algorithmes', color: '#9a7fd1' },
-    secu: { name: 'Sécurité', color: '#c9a93f' }
+    secu: { name: 'Sécurité', color: '#c9a93f' },
+    cloud: { name: 'Cloud et DevOps', color: '#4f9fc4' }
   };
   var PROJECTS = [
+    { t: 'OliveChain', kind: 'Projet ENIT', d: ['cloud', 'web'], w: 'wide wide-md', intro: 'Traçabilité de l\'huile d\'olive tunisienne, de l\'arbre à la bouteille, avec détection de fraude.',
+      l: 'https://github.com/Asma2003-spec/olivechain',
+      b: ['8 microservices Python FastAPI, conteneurisés avec Docker et orchestrés sur Kubernetes (HPA, rolling update, probes).', 'Dapr : événements Pub/Sub sur Redis Streams, Service Invocation, State Store et politique de résilience.', 'Istio : mTLS STRICT, retries, circuit breaker et déploiement canary ; supervision Prometheus, Grafana, Kiali et Jaeger.', 'QR code par bouteille, blocage automatique des lots frauduleux et boutique en ligne PostgreSQL qui retire d\'elle-même les produits suspects.'],
+      s: ['Python', 'FastAPI', 'Docker', 'Kubernetes', 'Dapr', 'Istio', 'Prometheus', 'Grafana', 'PostgreSQL', 'Redis', 'UML'] },
     { t: 'Tunis Nightlife', kind: 'Projet', d: ['web', 'mobile'], w: 'wide wide-md', intro: 'Plateforme web et mobile pour découvrir les sorties à Tunis.',
       b: ['Monorepo TypeScript : API NestJS, site Next.js et application iOS / Android, avec les mêmes contrats de validation Zod.', '12 tables PostgreSQL et recherche « autour de moi » par rayon, avec un index spatial GiST.', 'Sécurité : Argon2id, JWT, trois rôles et limitation de débit.', 'Notes, favoris, carte interactive et back-office de modération.'],
       s: ['TypeScript', 'Next.js', 'React', 'NestJS', 'React Native', 'PostgreSQL', 'PostGIS', 'Prisma', 'API REST'] },
@@ -345,8 +353,9 @@ footer h2 { font-size: clamp(2.1rem, 4.5vw, 2.9rem); line-height: 1.05; }
   var SKILLS = [
     ['Langages', ['Java', 'C', 'Python', 'PHP', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'Dart']],
     ['IA et data', ['Machine Learning', 'Deep Learning', 'PyTorch', 'Scikit-learn', 'NumPy', 'Jupyter', 'AudioCraft', 'LoRA']],
-    ['Web et mobile', ['Next.js', 'React', 'NestJS', 'Node.js', 'Express.js', 'Django', 'Streamlit', 'JEE', 'API REST', 'Tailwind CSS', 'Flutter', 'React Native']],
-    ['Bases de données', ['PostgreSQL', 'PostGIS', 'Prisma', 'MySQL', 'SQLite']],
+    ['Web et mobile', ['Next.js', 'React', 'NestJS', 'Node.js', 'Express.js', 'FastAPI', 'Django', 'Streamlit', 'JEE', 'API REST', 'Tailwind CSS', 'Flutter', 'React Native']],
+    ['Cloud et DevOps', ['Docker', 'Kubernetes', 'Dapr', 'Istio', 'Prometheus', 'Grafana', 'Microservices']],
+    ['Bases de données', ['PostgreSQL', 'PostGIS', 'Prisma', 'MySQL', 'SQLite', 'Redis']],
     ['Outils', ['Git', 'GitHub', 'VS Code', 'Eclipse', 'Postman', 'Swagger', 'pnpm', 'Linux', 'StarUML', 'Camunda']],
     ['Réseaux et méthodes', ['TCP/IP', 'Modèle OSI', 'Notions CCNA', 'POO', 'UML', 'Processus métier']]
   ];
@@ -369,6 +378,9 @@ footer h2 { font-size: clamp(2.1rem, 4.5vw, 2.9rem); line-height: 1.05; }
     var sk = document.getElementById('d-skills');
     sk.textContent = '';
     p.s.forEach(function (s) { sk.appendChild(el('span', 'chip', s)); });
+    var link = document.getElementById('d-link');
+    link.hidden = !p.l;
+    if (p.l) link.href = p.l;
     dialog.showModal();
   }
   document.getElementById('d-close').addEventListener('click', function () { dialog.close(); });
