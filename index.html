@@ -1,632 +1,159 @@
-<!doctype html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Portfolio d'Asma Moussa, étudiante ingénieure en informatique à l'ENIT.">
-<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Asma Moussa</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap">
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"><title>Asma Moussa - CV</title>
 <style>
-/* Layout: a bright single-theme page. Name on the left, project constellation on the right, then soft cards that open into a detail window. */
-:root {
-  --bg: #ffffff;
-  --soft: #f7f5f7;
-  --fg: #23202b;
-  --muted: #625d6e;
-  --line: #e8e3ea;
-  --accent: #a83a62;
-  --ia: #d9688d;
-  --web: #6f8fdc;
-  --mobile: #58b39b;
-  --process: #e9a15f;
-  --algo: #9a7fd1;
-  --secu: #c9a93f;
-  --display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --body: "Manrope", "Segoe UI", system-ui, sans-serif;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 76px; }
-body { background: var(--bg); color: var(--fg); font: 400 1rem/1.65 var(--body); }
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
-.wrap {
-  max-width: 1120px; margin-inline: auto;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
-}
-h1, h2, h3, p { margin: 0; }
-h1, h2 { font-family: var(--display); font-weight: 500; text-wrap: balance; }
-h3 { font-size: 1.1rem; font-weight: 600; line-height: 1.3; text-wrap: balance; }
-a { color: var(--accent); }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-.muted { color: var(--muted); }
+@page{size:A4;margin:12mm 14mm 10mm 14mm}
+*{box-sizing:border-box}
+body{font-family:Carlito,Calibri,sans-serif;font-size:9.3pt;line-height:1.27;color:#1a1a1a;margin:0}
+a{color:inherit;text-decoration:none}
+header{display:flex;justify-content:space-between;align-items:flex-start}
+h1{font-size:24pt;margin:0;line-height:1.05}
+.sub{font-size:12pt;margin:2px 0 8px}
+.contact{font-size:8.8pt}
+.qr{text-align:center;font-size:6.5pt}
+.qr img{width:23mm;display:block}
+h2{font-size:9pt;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid #1a1a1a;padding-bottom:2px;margin:9px 0 5px}
+.e{margin-bottom:6px;break-inside:avoid}
+.row{display:flex;justify-content:space-between;gap:10px}
+.t{font-weight:bold}
+.meta{font-style:italic;color:#333}
+ul{margin:1px 0 0;padding-left:15px}
+li{margin:0 0 1px}
+.badge{display:inline-block;font-size:7.6pt;font-weight:bold;border:1px solid #1a1a1a;border-radius:3px;padding:0 4px;margin-left:4px;vertical-align:1px}
+.sk p{margin:0 0 2px}
+.cert{columns:2;column-gap:24px}
+.cert li{break-inside:avoid}
 
-.bar {
-  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
-  background: rgba(255, 255, 255, .9); backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
+@media screen{
+ html{background:#eef0f3}
+ body{max-width:210mm;margin:24px auto;background:#fff;padding:14mm 14mm 12mm;box-shadow:0 2px 12px rgba(0,0,0,.12)}
+ a:hover{text-decoration:underline}
+ .dl{position:fixed;top:16px;right:16px;background:#1a1a1a;color:#fff;padding:8px 14px;border-radius:6px;font-size:10pt;text-decoration:none}
+ .dl:hover{text-decoration:none;opacity:.85}
 }
-.bar .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2px 20px; padding-block: 12px; }
-.brand { font: 600 1.3rem/1 var(--display); color: var(--fg); text-decoration: none; }
-.bar nav { display: flex; flex-wrap: wrap; gap: 2px 18px; }
-.bar nav a { color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 500; }
-.bar nav a:hover { color: var(--accent); }
-
-.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 16px 32px; align-items: center; padding-block: 40px 28px; }
-.hero-text { display: grid; gap: 18px; min-width: 0; }
-.role { color: var(--accent); font-weight: 600; font-size: .95rem; }
-h1 { font-size: clamp(3.6rem, 8.5vw, 6.4rem); line-height: .96; letter-spacing: -.01em; }
-.lead { font-size: 1.12rem; max-width: 30rem; color: var(--muted); }
-.actions { display: flex; flex-wrap: wrap; gap: 10px; }
-.btn {
-  font: 600 .95rem var(--body); cursor: pointer; text-decoration: none; padding: 11px 20px;
-  border-radius: 999px; border: 1px solid var(--line); background: var(--bg); color: var(--fg);
+@media screen and (max-width:700px){
+ body{margin:0;padding:18px;box-shadow:none}
+ header{flex-direction:column-reverse;gap:8px}
+ .row{flex-direction:column;gap:0}
+ .cert{columns:1}
+ .dl{position:static;display:inline-block;margin-bottom:12px}
 }
-.btn:hover { border-color: var(--accent); color: var(--accent); }
-.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-.btn.primary:hover { background: #8e2d51; color: #fff; }
+@media print{.dl{display:none}}
+</style></head><body>
+<a class="dl" href="Asma_Moussa_CV.pdf" download>Télécharger le CV (PDF)</a>
+<header>
+ <div>
+  <h1>Asma Moussa</h1>
+  <div class="sub">Étudiante ingénieure en informatique</div>
+  <div class="contact">90 313 890 · moussaasma37@gmail.com · Ezzahra, Ben Arous, Tunisie<br>
+  <a href="https://asma2003-spec.github.io/">asma2003-spec.github.io</a> · <a href="https://www.linkedin.com/in/asma-moussa-323155297/">linkedin.com/in/asma-moussa-323155297</a></div>
+ </div>
+ <a class="qr" href="https://asma2003-spec.github.io/"><img src="data:image/png;base64,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" alt="QR portfolio">Portfolio</a>
+</header>
 
-.scene { position: relative; min-width: 0; }
-#stage { position: relative; height: clamp(340px, 46vw, 520px); touch-action: pan-y; cursor: grab; }
-#stage.dragging { cursor: grabbing; }
-#stage.hovering { cursor: pointer; }
-#stage canvas { display: block; width: 100% !important; height: 100% !important; }
-#tip {
-  position: absolute; pointer-events: none; transform: translate(-50%, -140%); z-index: 2;
-  background: var(--fg); color: #fff; padding: 5px 11px; border-radius: 8px;
-  font-size: .85rem; font-weight: 500; white-space: nowrap; max-width: 90%; overflow: hidden; text-overflow: ellipsis;
-}
-.legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 14px; font-size: .84rem; color: var(--muted); }
-.legend span { display: inline-flex; align-items: center; gap: 6px; }
-.legend i { width: 10px; height: 10px; border-radius: 50%; background: var(--c); }
-.hint { text-align: center; font-size: .9rem; color: var(--muted); }
-.no-3d .scene { display: none; }
-.no-3d .hero { grid-template-columns: minmax(0, 1fr); }
-@media (max-width: 800px) { .hero { grid-template-columns: minmax(0, 1fr); padding-top: 28px; } }
+<h2>Profil</h2>
+<p style="margin:0">Étudiante ingénieure en informatique, sérieuse et motivée, passionnée par l'intelligence artificielle, le développement logiciel et l'automatisation des processus métier. Co-autrice d'un article accepté à la conférence IEEE I2CIT 2026 sur la génération de musique tunisienne par Deep Learning. Intéressée par les systèmes intelligents, les architectures logicielles cloud native et le Deep Learning.</p>
 
-section { padding-block: clamp(40px, 6vw, 68px); display: grid; gap: 26px; }
-section + section { border-top: 1px solid var(--line); }
-section > h2 { font-size: clamp(2.1rem, 4.5vw, 2.9rem); line-height: 1.05; }
+<h2>Formation</h2>
+<div class="e"><div class="row"><span class="t">Cycle Ingénieur en Informatique</span><span>2024 – Présent</span></div>École Nationale d'Ingénieurs de Tunis (ENIT)</div>
+<div class="e"><div class="row"><span class="t">Diplôme des Études Universitaires de Premier Cycle (DEUPC)</span><span>2022 – 2024</span></div>Classes Préparatoires Scientifiques, filière PC · Institut Préparatoire aux Études d'Ingénieurs de Tunis (IPEIT)</div>
 
-.paper { background: var(--soft); border-radius: 20px; padding: clamp(20px, 4vw, 40px); display: grid; gap: 18px; }
-.paper h3 { font: 500 clamp(1.55rem, 3.2vw, 2.15rem)/1.15 var(--display); }
-.prose { max-width: 44rem; }
-.track { height: 16px; border-radius: 8px; background: var(--line); overflow: hidden; }
-.track i { display: block; height: 100%; width: 0.19%; background: var(--accent); }
-.track-note { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 18px; font-size: .9rem; }
-.track-note b { color: var(--accent); font-weight: 600; }
-.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 24px; margin: 0; }
-.stats dt { font: 500 2rem/1.1 var(--display); font-variant-numeric: tabular-nums; }
-.stats dd { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.4; }
-@media (max-width: 520px) { .stats { grid-template-columns: minmax(0, 1fr); } }
+<h2>Expériences professionnelles</h2>
+<div class="e"><div class="t">Stage Ingénieur, LISA Digit / ENIT</div>
+<ul>
+<li>Restructuration du corpus JSONL (11 008 segments, 91,7 h) au standard AudioCraft ; détection et correction de 8 types d'anomalies ; rédaction de descriptions textuelles en anglais pour le conditionnement T5 du modèle.</li>
+<li>Participation à l'adaptation de MusicGen Large (3,3 milliards de paramètres) à l'oud tunisien par LoRA (0,19 % des paramètres entraînés), sur GPU RTX 4090.</li>
+<li>Développement de Malouf Archive (Django, SQLite, API REST), déployée en local et sur le serveur GPU : consultation du corpus et génération de Malouf à la demande (MusicGen + LoRA).</li>
+<li>Mise en place d'un test d'écoute MOS en ligne (norme ITU-T P.800) en complément des métriques objectives (CLAP, FAD, KL).</li>
+<li>Co-rédaction d'un article accepté à la conférence IEEE I2CIT 2026 (voir Publications).</li>
+</ul></div>
+<div class="e"><div class="t">Stage Ouvrier, Tunisie Telecom</div>
+<ul>
+<li>Analyse du circuit de traitement des réclamations clients et modélisation du workflow, du dépôt à la clôture.</li>
+<li>Conception et développement d'une plateforme complète de workflow pour l'enregistrement, le traitement et le suivi de l'état des réclamations.</li>
+<li>Intégration d'un chatbot pour guider le client dans le dépôt de sa réclamation et automatiser la collecte des informations.</li>
+</ul></div>
 
-.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 36px; align-items: start; }
-.two > div { min-width: 0; display: grid; gap: 6px; }
-.two ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; color: var(--muted); }
-@media (max-width: 680px) { .two { grid-template-columns: minmax(0, 1fr); } }
+<h2>Publications</h2>
+<div class="e"><div class="t">Fine-Tuning MusicGen for Tunisian Oud: A LoRA-Based Culturally Targeted Approach</div>
+<div>Co-autrice · Article <b>accepté</b> à l'<b>IEEE I2CIT 2026</b> (International Conference IEEE Challenges and Innovations on IT), Laboratoire SysCom, Hammamet, Tunisie, 23–25 décembre 2026 · publication dans IEEE Xplore, indexation Scopus</div>
+<ul>
+<li>Adaptation de MusicGen Large (3,3 Md de paramètres) à l'oud tunisien par LoRA (0,19 % des paramètres entraînés), corpus annoté de 11 008 segments (91,7 h) ; évaluation objective (CLAP, FAD, KL) et subjective (MOS).</li>
+</ul></div>
 
-.filters { display: flex; flex-wrap: wrap; gap: 8px; }
-.filters button {
-  font: 500 .9rem var(--body); padding: 7px 14px; border-radius: 999px; cursor: pointer;
-  background: var(--bg); color: var(--muted); border: 1px solid var(--line);
-}
-.filters button:hover { border-color: var(--accent); }
-.filters button[aria-pressed="true"] { background: var(--fg); border-color: var(--fg); color: #fff; }
-.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-flow: dense; gap: 16px; perspective: 1400px; }
-.card {
-  font: inherit; color: inherit; text-align: left; cursor: pointer; min-width: 0;
-  display: flex; flex-direction: column; gap: 8px; padding: 20px 20px 18px;
-  background: var(--soft); border: 1px solid transparent; border-radius: 16px;
-  transition: transform .16s ease-out, box-shadow .2s, border-color .2s;
-  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-}
-.card:hover { border-color: var(--line); box-shadow: 0 14px 34px rgba(60, 40, 70, .12); }
-.card .kind { display: inline-flex; align-items: center; gap: 7px; font-size: .82rem; color: var(--muted); font-weight: 500; }
-.card .kind i { width: 9px; height: 9px; border-radius: 50%; background: var(--c); }
-.card h3 { font-size: 1.18rem; }
-.card p { color: var(--muted); font-size: .95rem; line-height: 1.5; }
-.d-link { display: inline-block; margin-top: 16px; color: var(--accent); font-weight: 600; text-decoration: none; }
-.d-link:hover { text-decoration: underline; }
-.card .more { margin-top: auto; color: var(--accent); font-size: .88rem; font-weight: 600; padding-top: 6px; }
-.grid:not(.filtered) .wide { grid-column: span 2; }
-@media (max-width: 880px) {
-  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .grid:not(.filtered) .wide-md { grid-column: span 2; }
-}
-@media (max-width: 560px) {
-  .grid { grid-template-columns: minmax(0, 1fr); }
-  .grid:not(.filtered) .wide, .grid:not(.filtered) .wide-md { grid-column: auto; }
-}
+<h2>Projets</h2>
+<div class="e"><div class="t">PFA2, Deep Learning pour la génération de Malouf tunisien traditionnel</div>
+<p style="margin:1px 0 0">Pipeline complet réalisé de bout en bout, de la collecte des données jusqu'à l'évaluation : collecte des enregistrements de Malouf réalisée par moi-même, constitution et annotation du corpus (11 008 segments, 91,7 h), fine-tuning par LoRA des trois versions de MusicGen (Small, Medium et Large) avec PyTorch et AudioCraft sur GPU RTX 4090, puis évaluation et comparaison des modèles par métriques objectives (CLAP, FAD, KL) et test d'écoute MOS. Travaux valorisés par un article accepté par IEEE (I2CIT 2026).</p></div>
+<div class="e"><div class="row"><span class="t">OliveChain, traçabilité de l'huile d'olive tunisienne (cloud native)</span><a href="https://github.com/Asma2003-spec/olivechain">GitHub</a></div>
+<ul>
+<li>8 microservices Python FastAPI conteneurisés (Docker, Docker Compose) et orchestrés sur Kubernetes : Deployments, HPA, rolling update, probes, ConfigMap, Secrets, PVC.</li>
+<li>Dapr : Pub/Sub événementiel (Redis Streams, 7 topics), Service Invocation, State Store, politique de résilience ; QR code par bouteille et détection automatique des fraudes sur les volumes.</li>
+<li>Istio : Gateway, mTLS STRICT, retries, circuit breaker, déploiement canary (10 %, 50 %, 100 %) ; supervision Prometheus, Grafana, Kiali, Jaeger.</li>
+<li>Boutique en ligne (PostgreSQL, transactions ACID) alimentée par les événements, qui retire d'elle-même les produits suspects ; conception UML et C4.</li>
+</ul></div>
+<div class="e"><div class="row"><span class="t">Tunis Nightlife, plateforme web et mobile de découverte des sorties</span><span><a href="https://tunis-nightlife.onrender.com/">tunis-nightlife.onrender.com</a> · <a href="https://github.com/Asma2003-spec/tunis-nightlife">GitHub</a></span></div>
+<ul>
+<li>Plateforme web et mobile (iOS / Android) pour découvrir les boîtes de nuit, lounges et rooftops du Grand Tunis : fiches avec photos, horaires et événements, notes et avis des membres (1 à 5 étoiles), favoris, carte interactive et recherche « autour de moi ».</li>
+<li>Back-office complet pour les modérateurs et administrateurs : gestion des établissements et des photos, modération des avis, traitement des signalements et statistiques.</li>
+<li>Réalisation full-stack en TypeScript : API REST NestJS, site Next.js / React et application React Native (Expo) ; base PostgreSQL + PostGIS (Prisma) pour la recherche géographique ; sécurité par JWT, Argon2id, rôles et limitation de débit. Démo en ligne déployée sur Render.</li>
+</ul></div>
+<div class="e"><div class="t">FitTrack, application mobile Flutter</div>
+<ul>
+<li>Application de suivi fitness complète : podomètre automatique, coach IA local, timer HIIT, suivi santé et bien-être.</li>
+<li>Authentification Firebase (email / mot de passe) et base de données Cloud Firestore (5 collections).</li>
+<li>Gestion des états avec le Provider Pattern (5 providers), statistiques via fl_chart, export PDF et CSV, notifications locales programmables, Material Design 3 (thème clair / sombre).</li>
+</ul></div>
+<div class="e"><div class="t">Projet Data Mining, détection des crises d'absence (EEG)</div>
+<ul>
+<li>Traitement de signaux EEG réels : segmentation en fenêtres de 2 s et extraction de caractéristiques statistiques et fréquentielles (FFT).</li>
+<li>Classification (Random Forest, SVM, KNN, Decision Tree) avec gestion du déséquilibre des classes et plateforme de visualisation Gradio.</li>
+</ul></div>
+<div class="e"><div class="t">PFA1, sécurité des sites web</div>
+<ul><li>Analyse des vulnérabilités et mise en place de mécanismes de protection contre les attaques courantes.</li></ul></div>
+<div class="e"><div class="t">Workflow de fabrication textile</div>
+<ul><li>Modélisation et exécution d'un processus BPMN 2.0 sous Camunda 8, avec développement de workers Java (Zeebe) et gestion des exceptions.</li></ul></div>
+<div class="e"><div class="t">Plateforme de recrutement (TechCorp)</div>
+<ul><li>Application web de mise en relation recruteurs–candidats : publication d'offres, dépôt de CV et système de scoring automatique pour classer les candidatures.</li></ul></div>
+<div class="e"><div class="t">Plateforme de gestion des rendez-vous médicaux (Medicare+)</div>
+<ul><li>Prise, modification et annulation de rendez-vous, gestion des disponibilités des médecins et notifications automatiques.</li></ul></div>
+<div class="e"><div class="t">Projet JEE, gestion d'un cabinet dentaire</div>
+<ul>
+<li>Application web qui digitalise le fonctionnement quotidien d'un cabinet dentaire : enregistrement et suivi des patients, prise et gestion des rendez-vous, tenue des dossiers médicaux et organisation du planning du cabinet.</li>
+<li>Développée en Java EE selon l'architecture MVC (servlets, JSP) avec accès à une base de données relationnelle via JDBC.</li>
+</ul></div>
+<div class="e"><div class="t">Moteur de matching de noms (Java)</div>
+<ul><li>Algorithmes de similarité (Levenshtein, Jaro-Winkler) pour la recherche, la comparaison et la déduplication automatique de listes de noms.</li></ul></div>
+<div class="e"><div class="t">Site web de boutique, e-commerce</div>
+<ul><li>Développement autonome d'un site e-commerce avec gestion des produits, du panier et des commandes.</li></ul></div>
 
-.chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.chip {
-  font: 500 .86rem var(--body); padding: 3px 11px; border-radius: 999px; color: var(--fg);
-  background: var(--soft); border: 1px solid transparent;
-}
-button.chip { cursor: pointer; color: var(--accent); border-color: #ecd3dc; background: var(--bg); }
-button.chip:hover { background: var(--accent); color: #fff; }
-.skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 36px; }
-.skills > div { min-width: 0; display: grid; gap: 7px; align-content: start; }
-@media (max-width: 680px) { .skills { grid-template-columns: minmax(0, 1fr); } }
-
-dialog {
-  border: 0; border-radius: 20px; padding: 0; width: min(560px, calc(100vw - 32px));
-  max-height: calc(100dvh - 48px); color: var(--fg); background: var(--bg);
-  box-shadow: 0 30px 80px rgba(40, 25, 50, .3);
-}
-dialog::backdrop { background: rgba(35, 30, 45, .42); backdrop-filter: blur(3px); }
-.dialog-body { padding: 26px; display: grid; gap: 12px; }
-.dialog-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
-.dialog-body h3 { font: 500 2rem/1.1 var(--display); }
-.dialog-body ul { margin: 0; padding-left: 1.1em; display: grid; gap: 5px; }
-.close { flex: none; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg); cursor: pointer; font-size: 1.1rem; color: var(--fg); }
-
-footer { background: var(--soft); margin-top: 8px; }
-footer .wrap { padding-block: 44px 52px; display: grid; gap: 14px; }
-footer h2 { font-size: clamp(2.1rem, 4.5vw, 2.9rem); line-height: 1.05; }
-.mail { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
-.mail span { font-weight: 600; overflow-wrap: anywhere; }
-#copy-status { min-height: 1.5em; font-size: .9rem; color: var(--muted); }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .card { transition: none; } }
-</style>
-</head>
-<body>
-
-<div class="bar">
-  <div class="wrap">
-    <a class="brand" href="#top">Asma Moussa</a>
-    <nav aria-label="Sections">
-      <a href="#publication">Publication</a>
-      <a href="#experience">Expérience</a>
-      <a href="#projets">Projets</a>
-      <a href="#competences">Compétences</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
+<h2>Compétences</h2>
+<div class="sk">
+<p><b>Langages :</b> Java, C, Python, PHP, TypeScript, JavaScript, HTML, CSS, Dart (Flutter)</p>
+<p><b>IA et data :</b> Machine Learning, Deep Learning, IA générative audio, Scikit-learn, NumPy, Jupyter, PyTorch, AudioCraft (MusicGen), LoRA</p>
+<p><b>Web :</b> Next.js, React, NestJS, Node.js, Express.js, FastAPI, API REST, Tailwind CSS, JEE (Servlets, JSP, JDBC, MVC), Streamlit, Django</p>
+<p><b>Mobile :</b> Flutter, React Native (Expo)</p>
+<p><b>Cloud et DevOps :</b> Docker, Docker Compose, Kubernetes (minikube, HPA), Dapr, Istio (service mesh, mTLS, canary), Prometheus, Grafana, Kiali, Jaeger</p>
+<p><b>Bases de données :</b> PostgreSQL, PostGIS, Prisma, MySQL, SQLite, Redis</p>
+<p><b>Réseaux et systèmes :</b> TCP/IP, modèle OSI, notions CCNA, microservices, architectures événementielles</p>
+<p><b>Outils :</b> VS Code, Eclipse, Git, GitHub, Postman, Swagger, pnpm, Linux, StarUML, PlantUML, Camunda, RTX 4090</p>
+<p><b>Méthodologies :</b> POO, UML, modèle C4, modélisation de processus métier (Workflow)</p>
+<p><b>Langues :</b> arabe, français, anglais</p>
 </div>
 
-<div class="wrap" id="top">
-  <div class="hero">
-    <div class="hero-text">
-      <p class="role">Étudiante ingénieure en informatique, ENIT</p>
-      <h1>Asma Moussa</h1>
-      <p class="lead">Passionnée par l'intelligence artificielle, le développement logiciel et l'automatisation des processus métier.</p>
-      <div class="actions">
-        <a class="btn primary" href="#projets">Voir mes projets</a>
-        <a class="btn" href="https://www.linkedin.com/in/asma-moussa-323155297/">LinkedIn</a>
-      </div>
-    </div>
-    <div class="scene">
-      <div id="stage" aria-hidden="true"><div id="tip" hidden></div></div>
-      <p class="hint">Chaque sphère est un projet. Tournez la constellation et cliquez sur une sphère.</p>
-      <div class="legend" id="legend" style="margin-top:8px"></div>
-    </div>
-  </div>
-</div>
-
-<main class="wrap">
-  <section id="publication">
-    <h2>Publication</h2>
-    <div class="paper">
-      <h3>Fine-Tuning MusicGen for Tunisian Oud: A LoRA-Based Culturally Targeted Approach</h3>
-      <p class="muted">Article de conférence, format IEEE. Co-autrice, article finalisé.</p>
-      <p class="prose">Adaptation de MusicGen Large à l'oud tunisien par LoRA, avec une évaluation objective (CLAP, FAD, KL) et subjective (MOS).</p>
-      <div class="track" role="img" aria-label="0,19 % des paramètres entraînés"><i></i></div>
-      <div class="track-note"><b>0,19 % des paramètres entraînés</b><span class="muted">sur 3,3 milliards, à l'échelle réelle</span></div>
-      <dl class="stats">
-        <div><dt>11 008</dt><dd>segments annotés</dd></div>
-        <div><dt>91,7 h</dt><dd>de corpus</dd></div>
-        <div><dt>4</dt><dd>mesures d'évaluation</dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <section id="experience">
-    <h2>Expérience</h2>
-    <div class="two">
-      <div>
-        <h3>Stage ingénieur, LISA Digit / ENIT</h3>
-        <ul>
-          <li>Corpus JSONL de 11 008 segments restructuré au standard AudioCraft, avec 8 types d'anomalies corrigés.</li>
-          <li>Plateforme Malouf Archive déployée en local et sur serveur GPU RTX 4090.</li>
-          <li>Évaluation MOS en ligne (ITU-T P.800) et co-rédaction de l'article IEEE.</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Stage ouvrier, Tunisie Telecom</h3>
-        <ul>
-          <li>Plateforme complète de workflow pour traiter et suivre les réclamations clients, à l'aide d'un chatbot.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="projets">
-    <h2>Projets</h2>
-    <div class="filters" id="filters" role="group" aria-label="Filtrer les projets"></div>
-    <div class="grid" id="grid"></div>
-  </section>
-
-  <section id="competences">
-    <h2>Compétences</h2>
-    <p class="muted">Cliquez sur une compétence encadrée pour voir les projets qui l'utilisent.</p>
-    <div class="skills" id="skills"></div>
-  </section>
-
-  <section id="formation">
-    <h2>Formation</h2>
-    <div class="two">
-      <div><p class="muted">2024 – présent</p><h3>Cycle ingénieur en informatique</h3><p class="muted">École Nationale d'Ingénieurs de Tunis (ENIT)</p></div>
-      <div><p class="muted">2022 – 2024</p><h3>Classes préparatoires, filière PC</h3><p class="muted">IPEIT, Diplôme des Études Universitaires de Premier Cycle</p></div>
-    </div>
-  </section>
-
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <div class="two">
-      <div><h3>DataCamp</h3><p class="muted">AI Engineer for Developers Associate, Transformer Models with PyTorch, Working with the OpenAI API, Data Manipulation in SQL</p></div>
-      <div><h3>Microsoft Learn</h3><p class="muted">Introduction to Generative AI and AI Agents, Plan and Prepare the Development of AI Solutions on Azure</p></div>
-      <div><h3>365 Data Science</h3><p class="muted">Intro to AI, Git and GitHub</p></div>
-      <div><h3>Cursa</h3><p class="muted">Programme en Java, HTML et CSS complet</p></div>
-      <div><h3>Cisco Networking Academy</h3><p class="muted">CCNA: Introduction to Networks</p></div>
-      <div><h3>OPSWAT Academy</h3><p class="muted">Introduction to Critical Infrastructure Protection (ICIP)</p></div>
-    </div>
-  </section>
-</main>
-
-<footer id="contact">
-  <div class="wrap">
-    <h2>Travaillons ensemble</h2>
-    <div class="mail">
-      <span id="email">moussaasma37@gmail.com</span>
-      <button class="btn" id="copy" type="button">Copier l'e-mail</button>
-      <a class="btn" href="https://www.linkedin.com/in/asma-moussa-323155297/">LinkedIn</a>
-    </div>
-    <p id="copy-status" role="status"></p>
-    <p class="muted">Ezzahra, Ben Arous, Tunisie · Arabe, français, anglais</p>
-  </div>
-</footer>
-
-<dialog id="detail" aria-labelledby="d-title">
-  <div class="dialog-body">
-    <div class="dialog-top">
-      <div><p class="muted" id="d-kind"></p><h3 id="d-title"></h3></div>
-      <button class="close" id="d-close" type="button" aria-label="Fermer">×</button>
-    </div>
-    <p id="d-intro"></p>
-    <ul id="d-list"></ul>
-    <div class="chips" id="d-skills"></div>
-    <a id="d-link" class="d-link" target="_blank" rel="noopener" hidden>Voir le code sur GitHub ↗</a>
-  </div>
-</dialog>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-(function () {
-  var DOMAINS = {
-    ia: { name: 'IA et data', color: '#d9688d' },
-    web: { name: 'Web', color: '#6f8fdc' },
-    mobile: { name: 'Mobile', color: '#58b39b' },
-    process: { name: 'Processus', color: '#e9a15f' },
-    algo: { name: 'Algorithmes', color: '#9a7fd1' },
-    secu: { name: 'Sécurité', color: '#c9a93f' },
-    cloud: { name: 'Cloud et DevOps', color: '#4f9fc4' }
-  };
-  var PROJECTS = [
-    { t: 'OliveChain', kind: 'Projet ENIT', d: ['cloud', 'web'], w: 'wide wide-md', intro: 'Traçabilité de l\'huile d\'olive tunisienne, de l\'arbre à la bouteille, avec détection de fraude.',
-      l: 'https://github.com/Asma2003-spec/olivechain',
-      b: ['8 microservices Python FastAPI, conteneurisés avec Docker et orchestrés sur Kubernetes (HPA, rolling update, probes).', 'Dapr : événements Pub/Sub sur Redis Streams, Service Invocation, State Store et politique de résilience.', 'Istio : mTLS STRICT, retries, circuit breaker et déploiement canary ; supervision Prometheus, Grafana, Kiali et Jaeger.', 'QR code par bouteille, blocage automatique des lots frauduleux et boutique en ligne PostgreSQL qui retire d\'elle-même les produits suspects.'],
-      s: ['Python', 'FastAPI', 'Docker', 'Kubernetes', 'Dapr', 'Istio', 'Prometheus', 'Grafana', 'PostgreSQL', 'Redis', 'UML'] },
-    { t: 'Tunis Nightlife', kind: 'Projet', d: ['web', 'mobile'], w: 'wide wide-md', intro: 'Plateforme web et mobile pour découvrir les sorties à Tunis.',
-      b: ['Monorepo TypeScript : API NestJS, site Next.js et application iOS / Android, avec les mêmes contrats de validation Zod.', '12 tables PostgreSQL et recherche « autour de moi » par rayon, avec un index spatial GiST.', 'Sécurité : Argon2id, JWT, trois rôles et limitation de débit.', 'Notes, favoris, carte interactive et back-office de modération.'],
-      s: ['TypeScript', 'Next.js', 'React', 'NestJS', 'React Native', 'PostgreSQL', 'PostGIS', 'Prisma', 'API REST'] },
-    { t: 'Malouf Archive', kind: 'Stage', d: ['ia', 'web'], w: 'wide wide-md', intro: 'Plateforme qui génère du Malouf avec MusicGen et LoRA.',
-      b: ['Déploiement en local et sur serveur GPU RTX 4090.', 'Génération de musique depuis la plateforme, avec une API REST.', 'Corpus de 11 008 segments restructuré au standard AudioCraft.'],
-      s: ['Django', 'SQLite', 'AudioCraft', 'LoRA', 'API REST'] },
-    { t: 'FitTrack', kind: 'Projet', d: ['mobile'], w: 'wide-md', intro: 'Application mobile de suivi fitness, santé et bien-être.',
-      b: ['Podomètre automatique, coach IA local et timer HIIT.', 'Authentification Firebase et 5 collections Cloud Firestore.', '5 providers, statistiques fl_chart, export PDF et CSV, notifications locales et thème clair ou sombre.'],
-      s: ['Flutter', 'Dart'] },
-    { t: 'Détection des crises d\'absence', kind: 'Data Mining', d: ['ia'], intro: 'Classification de signaux EEG réels.',
-      b: ['Segmentation en fenêtres de 2 s et extraction de caractéristiques statistiques et fréquentielles (FFT).', 'Random Forest, SVM, KNN et Decision Tree, avec gestion du déséquilibre des classes.', 'Plateforme de visualisation Gradio.'],
-      s: ['Machine Learning'] },
-    { t: 'PFA2 : musique générative', kind: 'PFA', d: ['ia'], intro: 'Deep Learning pour générer de la musique tunisienne.',
-      b: ['Fine-tuning d\'un modèle pré-entraîné sur de la musique occidentale.'], s: ['Deep Learning'] },
-    { t: 'Réclamations clients', kind: 'Stage Tunisie Telecom', d: ['process'], intro: 'Plateforme de workflow pour traiter et suivre les réclamations.',
-      b: ['Conception et développement d\'une plateforme complète, à l\'aide d\'un chatbot.'], s: [] },
-    { t: 'Workflow textile', kind: 'Projet', d: ['process'], intro: 'Processus de fabrication en BPMN 2.0 exécuté sous Camunda 8.',
-      b: ['Modélisation et exécution du processus.', 'Workers Java (Zeebe) et gestion des exceptions.'], s: ['Camunda', 'Java'] },
-    { t: 'TechCorp', kind: 'Projet', d: ['web'], intro: 'Plateforme de recrutement entre recruteurs et candidats.',
-      b: ['Publication d\'offres et dépôt de CV.', 'Scoring automatique pour classer les candidatures.'], s: [] },
-    { t: 'Medicare+', kind: 'Projet', d: ['web'], intro: 'Plateforme de gestion des rendez-vous médicaux.',
-      b: ['Prise, modification et annulation de rendez-vous.', 'Disponibilités des médecins et notifications automatiques.'], s: [] },
-    { t: 'Cabinet dentaire', kind: 'Projet JEE', d: ['web'], intro: 'Gestion des patients, rendez-vous, dossiers médicaux et planning.',
-      b: ['Servlets, JSP et architecture MVC.', 'Accès à la base de données via JDBC.'], s: ['JEE', 'Java'] },
-    { t: 'Boutique e-commerce', kind: 'Projet', d: ['web'], intro: 'Site développé en autonomie.',
-      b: ['Gestion des produits, du panier et des commandes.'], s: [] },
-    { t: 'Matching de noms', kind: 'Projet', d: ['algo'], intro: 'Recherche, comparaison et déduplication de listes de noms.',
-      b: ['Algorithmes de similarité Levenshtein et Jaro-Winkler.'], s: ['Java'] },
-    { t: 'PFA1 : sécurité web', kind: 'PFA', d: ['secu'], intro: 'Analyse des vulnérabilités d\'un site web.',
-      b: ['Mise en place de protections contre les attaques courantes.'], s: [] }
-  ];
-  var SKILLS = [
-    ['Langages', ['Java', 'C', 'Python', 'PHP', 'TypeScript', 'JavaScript', 'HTML', 'CSS', 'Dart']],
-    ['IA et data', ['Machine Learning', 'Deep Learning', 'PyTorch', 'Scikit-learn', 'NumPy', 'Jupyter', 'AudioCraft', 'LoRA']],
-    ['Web et mobile', ['Next.js', 'React', 'NestJS', 'Node.js', 'Express.js', 'FastAPI', 'Django', 'Streamlit', 'JEE', 'API REST', 'Tailwind CSS', 'Flutter', 'React Native']],
-    ['Cloud et DevOps', ['Docker', 'Kubernetes', 'Dapr', 'Istio', 'Prometheus', 'Grafana', 'Microservices']],
-    ['Bases de données', ['PostgreSQL', 'PostGIS', 'Prisma', 'MySQL', 'SQLite', 'Redis']],
-    ['Outils', ['Git', 'GitHub', 'VS Code', 'Eclipse', 'Postman', 'Swagger', 'pnpm', 'Linux', 'StarUML', 'Camunda']],
-    ['Réseaux et méthodes', ['TCP/IP', 'Modèle OSI', 'Notions CCNA', 'POO', 'UML', 'Processus métier']]
-  ];
-  function el(tag, cls, text) {
-    var e = document.createElement(tag);
-    if (cls) e.className = cls;
-    if (text !== undefined) e.textContent = text;
-    return e;
-  }
-
-  // Detail window
-  var dialog = document.getElementById('detail');
-  function openProject(p) {
-    document.getElementById('d-kind').textContent = p.kind + ' · ' + p.d.map(function (x) { return DOMAINS[x].name; }).join(', ');
-    document.getElementById('d-title').textContent = p.t;
-    document.getElementById('d-intro').textContent = p.intro;
-    var ul = document.getElementById('d-list');
-    ul.textContent = '';
-    p.b.forEach(function (t) { ul.appendChild(el('li', '', t)); });
-    var sk = document.getElementById('d-skills');
-    sk.textContent = '';
-    p.s.forEach(function (s) { sk.appendChild(el('span', 'chip', s)); });
-    var link = document.getElementById('d-link');
-    link.hidden = !p.l;
-    if (p.l) link.href = p.l;
-    dialog.showModal();
-  }
-  document.getElementById('d-close').addEventListener('click', function () { dialog.close(); });
-  dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
-
-  // Cards
-  var grid = document.getElementById('grid');
-  var fine = window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches;
-  var still = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  PROJECTS.forEach(function (p, i) {
-    var c = el('button', 'card ' + (p.w || ''));
-    c.id = 'card-' + i;
-    c.type = 'button';
-    c.style.setProperty('--c', DOMAINS[p.d[0]].color);
-    var k = el('span', 'kind');
-    k.appendChild(el('i'));
-    k.appendChild(document.createTextNode(p.kind));
-    c.appendChild(k);
-    c.appendChild(el('h3', '', p.t));
-    c.appendChild(el('p', '', p.intro));
-    c.appendChild(el('span', 'more', 'Voir le détail'));
-    c.addEventListener('click', function () { openProject(p); });
-    if (fine && !still) {
-      c.addEventListener('pointermove', function (e) {
-        var r = c.getBoundingClientRect();
-        c.style.setProperty('--ry', ((e.clientX - r.left) / r.width - .5) * 9 + 'deg');
-        c.style.setProperty('--rx', (.5 - (e.clientY - r.top) / r.height) * 9 + 'deg');
-      });
-      c.addEventListener('pointerleave', function () {
-        c.style.setProperty('--rx', '0deg');
-        c.style.setProperty('--ry', '0deg');
-      });
-    }
-    p.card = c;
-    grid.appendChild(c);
-  });
-
-  // Filters
-  var box = document.getElementById('filters');
-  var chips = [];
-  function addFilter(label, test) {
-    var b = el('button', '', label);
-    b.type = 'button';
-    b.addEventListener('click', function () { apply(b, test); });
-    chips.push(b);
-    box.appendChild(b);
-    return b;
-  }
-  function apply(active, test) {
-    chips.forEach(function (b) { b.setAttribute('aria-pressed', String(b === active)); });
-    PROJECTS.forEach(function (p) { p.card.hidden = !test(p); });
-    grid.classList.toggle('filtered', active !== all);
-  }
-  var all = addFilter('Tous', function () { return true; });
-  Object.keys(DOMAINS).forEach(function (id) {
-    addFilter(DOMAINS[id].name, function (p) { return p.d.indexOf(id) > -1; });
-  });
-  var skillChip = el('button', '', '');
-  skillChip.type = 'button';
-  skillChip.hidden = true;
-  chips.push(skillChip);
-  box.appendChild(skillChip);
-  apply(all, function () { return true; });
-
-  // Skills
-  var known = {};
-  PROJECTS.forEach(function (p) { p.s.forEach(function (n) { known[n] = true; }); });
-  var skillsBox = document.getElementById('skills');
-  SKILLS.forEach(function (g) {
-    var d = el('div');
-    d.appendChild(el('h3', '', g[0]));
-    var row = el('div', 'chips');
-    g[1].forEach(function (n) {
-      if (!known[n]) { row.appendChild(el('span', 'chip', n)); return; }
-      var b = el('button', 'chip', n);
-      b.type = 'button';
-      b.addEventListener('click', function () {
-        skillChip.textContent = n;
-        skillChip.hidden = false;
-        apply(skillChip, function (p) { return p.s.indexOf(n) > -1; });
-        document.getElementById('projets').scrollIntoView();
-      });
-      row.appendChild(b);
-    });
-    d.appendChild(row);
-    skillsBox.appendChild(d);
-  });
-
-  // Legend
-  var legend = document.getElementById('legend');
-  Object.keys(DOMAINS).forEach(function (id) {
-    var s = el('span');
-    s.style.setProperty('--c', DOMAINS[id].color);
-    s.appendChild(el('i'));
-    s.appendChild(document.createTextNode(DOMAINS[id].name));
-    legend.appendChild(s);
-  });
-
-  // Email
-  var status = document.getElementById('copy-status');
-  var email = document.getElementById('email');
-  document.getElementById('copy').addEventListener('click', function () {
-    function select() {
-      var range = document.createRange();
-      range.selectNodeContents(email);
-      var s = getSelection(); s.removeAllRanges(); s.addRange(range);
-      status.textContent = 'Adresse sélectionnée. Copiez-la avec votre clavier.';
-    }
-    if (!navigator.clipboard) return select();
-    navigator.clipboard.writeText(email.textContent).then(function () {
-      status.textContent = 'Adresse copiée.';
-    }, select);
-  });
-
-  // 3D constellation
-  function start3D() {
-    var stage = document.getElementById('stage');
-    var tip = document.getElementById('tip');
-    var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.outputEncoding = THREE.sRGBEncoding;
-    stage.appendChild(renderer.domElement);
-
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(38, 1, .1, 50);
-    camera.position.z = 8.6;
-    scene.add(new THREE.HemisphereLight(0xffffff, 0xf3e6ee, .95));
-    var sun = new THREE.DirectionalLight(0xffffff, .75);
-    sun.position.set(3, 5, 6);
-    scene.add(sun);
-
-    var group = new THREE.Group();
-    scene.add(group);
-    group.add(new THREE.Mesh(
-      new THREE.SphereGeometry(.92, 48, 48),
-      new THREE.MeshStandardMaterial({ color: 0xfbeef2, roughness: .3, metalness: .05 })
-    ));
-    group.add(new THREE.Mesh(
-      new THREE.IcosahedronGeometry(1.32, 1),
-      new THREE.MeshBasicMaterial({ color: 0xe3c6d2, wireframe: true, transparent: true, opacity: .55 })
-    ));
-
-    var nodes = [], n = PROJECTS.length, golden = Math.PI * (3 - Math.sqrt(5));
-    PROJECTS.forEach(function (p, i) {
-      var y = 1 - (i + .5) / n * 2, r = Math.sqrt(1 - y * y), a = i * golden;
-      var pos = new THREE.Vector3(Math.cos(a) * r, y, Math.sin(a) * r).multiplyScalar(2.45);
-      var m = new THREE.Mesh(
-        new THREE.SphereGeometry(i < 3 ? .26 : .19, 32, 32),
-        new THREE.MeshStandardMaterial({ color: new THREE.Color(DOMAINS[p.d[0]].color), roughness: .32, metalness: .08 })
-      );
-      m.position.copy(pos);
-      m.userData.project = p;
-      group.add(m);
-      nodes.push(m);
-    });
-
-    // A line joins the projects that share a domain.
-    var points = [];
-    Object.keys(DOMAINS).forEach(function (id) {
-      var same = nodes.filter(function (m) { return m.userData.project.d.indexOf(id) > -1; });
-      for (var i = 0; i < same.length - 1; i++) points.push(same[i].position, same[i + 1].position);
-    });
-    group.add(new THREE.LineSegments(
-      new THREE.BufferGeometry().setFromPoints(points),
-      new THREE.LineBasicMaterial({ color: 0xd9bcc9, transparent: true, opacity: .75 })
-    ));
-
-    function resize() {
-      var w = stage.clientWidth, h = stage.clientHeight;
-      renderer.setSize(w, h, false);
-      camera.aspect = w / h;
-      camera.position.z = w / h < 1 ? 8.6 / (w / h) : 8.6;
-      camera.updateProjectionMatrix();
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    var mouse = new THREE.Vector2(), ray = new THREE.Raycaster();
-    var hovered = null, dragging = false, moved = 0, last = null;
-    var spinX = .25, spinY = 0, tiltX = 0, tiltY = 0;
-
-    function pick(e) {
-      var r = stage.getBoundingClientRect();
-      mouse.set((e.clientX - r.left) / r.width * 2 - 1, -(e.clientY - r.top) / r.height * 2 + 1);
-      ray.setFromCamera(mouse, camera);
-      var hit = ray.intersectObjects(nodes)[0];
-      return hit ? hit.object : null;
-    }
-    function hover(m, e) {
-      if (hovered === m) { if (m) place(e); return; }
-      if (hovered) hovered.scale.setScalar(1);
-      hovered = m;
-      tip.hidden = !m;
-      stage.classList.toggle('hovering', !!m);
-      if (m) { m.scale.setScalar(1.35); tip.textContent = m.userData.project.t; place(e); }
-    }
-    function place(e) {
-      var r = stage.getBoundingClientRect();
-      tip.style.left = (e.clientX - r.left) + 'px';
-      tip.style.top = (e.clientY - r.top) + 'px';
-    }
-    stage.addEventListener('pointerdown', function (e) {
-      moved = 0; last = e;
-      if (e.pointerType === 'mouse') { dragging = true; stage.classList.add('dragging'); }
-    });
-    window.addEventListener('pointerup', function () { dragging = false; stage.classList.remove('dragging'); });
-    stage.addEventListener('pointermove', function (e) {
-      var r = stage.getBoundingClientRect();
-      tiltY = ((e.clientX - r.left) / r.width - .5) * .5;
-      tiltX = ((e.clientY - r.top) / r.height - .5) * .35;
-      if (dragging) {
-        var dx = e.clientX - last.clientX, dy = e.clientY - last.clientY;
-        moved += Math.abs(dx) + Math.abs(dy);
-        spinY += dx * .008;
-        spinX += dy * .008;
-        last = e;
-      }
-      hover(pick(e), e);
-    });
-    stage.addEventListener('pointerleave', function () { hover(null); tiltX = tiltY = 0; });
-    stage.addEventListener('click', function (e) {
-      if (moved > 6) return;
-      var m = pick(e);
-      if (m) openProject(m.userData.project);
-    });
-
-    var visible = true;
-    new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }).observe(stage);
-    function frame() {
-      requestAnimationFrame(frame);
-      if (!visible || dialog.open) return;
-      if (!still && !dragging && !hovered) spinY += .0032;
-      group.rotation.y += (spinY + tiltY - group.rotation.y) * .08;
-      group.rotation.x += (spinX + tiltX - group.rotation.x) * .08;
-      renderer.render(scene, camera);
-    }
-    group.rotation.set(spinX, spinY, 0);
-    frame();
-  }
-  try {
-    if (!window.THREE) throw new Error('three');
-    start3D();
-  } catch (e) {
-    document.body.classList.add('no-3d');
-  }
-})();
-</script>
-</body>
-</html>
+<h2>Certifications</h2>
+<ul class="cert">
+<li>DataCamp : AI Engineer for Developers Associate</li>
+<li>DataCamp : Transformer Models with PyTorch</li>
+<li>DataCamp : Working with the OpenAI API</li>
+<li>DataCamp : Data Manipulation in SQL</li>
+<li>Cisco Networking Academy : CCNA, Introduction to Networks</li>
+<li>OPSWAT Academy : Introduction to Critical Infrastructure Protection (ICIP)</li>
+<li>365 Data Science : Intro to AI</li>
+<li>365 Data Science : Git and GitHub</li>
+<li>Cursa : Programme en Java</li>
+<li>Cursa : HTML et CSS complet</li>
+<li>Microsoft Learn : Introduction to Generative AI and AI Agents</li>
+<li>Microsoft Learn : Plan and Prepare the Development of AI Solutions on Azure</li>
+</ul>
+</body></html>
